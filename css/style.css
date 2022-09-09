@@ -1,0 +1,49 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#titulo {
+    font-size: 40px;
+    text-align: center;
+    padding: 1rem 0 1rem 0
+}
+
+#info {
+    font-size: 22px;
+    margin: 0 0 1rem 1rem;
+}
+
+#buscarProd {
+    margin: 0 1rem 0 1rem;
+    width: 40vw;
+    height: 2.2rem;
+    border: solid grey 1px;
+    border-radius: 5px;
+}
+
+#buscarProd:focus {
+    border: solid 1px rgb(36, 131, 221);
+    outline: 1px;
+}
+
+.metodos {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 90%;
+    margin-left: 1rem;
+    border: 1px solid black;
+}
+
+thead tr th {
+    background-color: rgb(211, 211, 211);
+    font-weight: bold;
+    padding: .5rem;
+}
+
+#tabla tr td {
+    padding: 5px 0;
+}
