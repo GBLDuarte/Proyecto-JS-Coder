@@ -15,6 +15,8 @@ inputFiltro.addEventListener("input", filtroProductos);
 
 
 // FUNCIONES
+// Interaccion HTML
+
 function cargarProductos(arr) {
     let filaTabla = "";
     tabla.innerHTML = "";
@@ -23,10 +25,13 @@ function cargarProductos(arr) {
                         <td>${producto.id}</td>
                         <td>${producto.nombre}</td>
                         <td>$${producto.precio}</td>
+                        <td><button id="btn${producto.id}">+</button></td>
                     </tr>`
                     tabla.innerHTML += filaTabla;
     })
 }
+
+// Metodos de orden
 
 function ordenId() {
     productos.sort((a, b) => {
@@ -66,6 +71,8 @@ function ordenPrecio() {
     })
     cargarProductos(productos);
 }
+
+// Filtrado de productos por nombre 
 
 function filtroProductos() {
     inputFiltro.value = inputFiltro.value.toUpperCase();
