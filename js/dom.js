@@ -77,7 +77,7 @@ function ordenPrecio() {
 function filtroProductos() {
     inputFiltro.value = inputFiltro.value.toUpperCase();
     if (inputFiltro.value !== "") {
-        const salida = productos.filter((fil) => fil.nombre.includes(inputFiltro.value));
+        const salida = productos.filter((filtro) => filtro.nombre.includes(inputFiltro.value));
             if (salida.length === 0) {
                 console.warn("No se encuentra");
                 cargarProductos(productos);
