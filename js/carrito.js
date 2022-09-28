@@ -19,7 +19,7 @@ function accionAgregar() {
         const btn = document.querySelector(`#btn${prod.id}`)
             btn.addEventListener("click", () => {
                 agregarAlCarrito(`${prod.id}`)
-                sumaTotal()
+                sumaTotal(...carrito)
         });      
         })        
 }
@@ -33,9 +33,7 @@ function agregarAlCarrito(id) {
 }
 
 function recuperoCarrito() {
-    if (localStorage.getItem("carrito")) {
-        carrito = JSON.parse(localStorage.getItem("carrito"));
-    }
+    localStorage.getItem("carrito") && carrito;
 }
 
 function limpiezaCarrito() {
@@ -45,16 +43,15 @@ function limpiezaCarrito() {
 }
 
 function comprobarCarrito() {
-    if (localStorage.getItem("carrito")) {
-        generarCarrito();
-    }
+    localStorage.getItem("carrito") && generarCarrito();
 }
 
-function sumaTotal() {
-    let total = carrito.reduce((acc, elemento) => acc + elemento.precio, 0)
+function sumaTotal(...arr) {
+    let total = arr.reduce((acc, elemento) => acc + elemento.precio, 0)
     precioFinal.innerHTML = `Precio total: $${total}`
 }
 
 comprobarCarrito();
 recuperoCarrito();
+sumaTotal(...carrito);
 accionAgregar();

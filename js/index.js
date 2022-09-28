@@ -16,7 +16,7 @@ const productos = [
     {id: 2023, nombre: "REGLA", precio: 100},
 ]
 
-let carrito = [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 class Producto {
     constructor (id, nombre, precio) {
