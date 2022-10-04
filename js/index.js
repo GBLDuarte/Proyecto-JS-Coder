@@ -25,3 +25,8 @@ class Producto {
         this.precio = precio
     }
 }
+
+productos.push(new Producto(4, "REGLA DE METAL", 500)); 
+productos.push(new Producto(7740, "LAPIZ BIC", 310)); 
+productos.push(new Producto(641, "TRANSPORTADOR", 220)); 
+productos.push(new Producto(2022, "LAPIZ DE COLOR X5", 700)); 

@@ -13,7 +13,6 @@ inputFiltro.addEventListener("input", filtroProductos);
 
 
 
-
 // FUNCIONES
 // Interaccion HTML
 
