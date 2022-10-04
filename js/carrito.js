@@ -53,25 +53,46 @@ function sumaTotal(...arr) {
     precioFinal.innerHTML = `Precio total: $${total}`
 }
 
-// Vaciar carrito mediante boton
+// Vaciar carrito mediante boton + alerta
 const vaciarCarrito = document.querySelector("#btnVaciar")
-vaciarCarrito.addEventListener("click", ()=>{
-    localStorage.clear()
-    
-})
+vaciarCarrito.addEventListener("click", vaciadoCarrito);
 
-// Librerias
+function vaciadoCarrito() {
+    Swal.fire({
+        title: 'Desea vaciar el carrito completamente?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'green',
+        cancelButtonColor: "red",
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Realizado con exito",
+                icon: "success",
+                showConfirmButton: false
+            })
+            setTimeout(() => {
+                localStorage.clear();
+                location.reload();
+              }, "730")
+        }
+    })
+}
+
+// Librerias para alertas
 function msjCarrito() {
     Toastify({
         text: "Agregado al carrito",
-        duration: 2000,
+        duration: 1000,
         newWindow: true,
         close: true,
         gravity: "top",
         position: "right",
         stopOnFocus: true,
         style: {
-            background: "linear-gradient(90deg, rgba(31,182,53,1) 0%, rgba(2,195,5,1) 55%)", 
+            background: "linear-gradient(90deg, rgba(31,182,53,1) 0%, rgba(2,195,5,1) 55%)",
             color: "white",
         },
     }).showToast();
@@ -79,5 +100,5 @@ function msjCarrito() {
 
 comprobarCarrito();
 recuperoCarrito();
-sumaTotal(...carrito);
 accionAgregar();
+sumaTotal(...carrito);
