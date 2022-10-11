@@ -1,32 +1,117 @@
-// Declarar
-const productos = [
-    {id: 210, nombre: "LAPIZ", precio: 210},
-    {id: 10, nombre: "TIJERA", precio: 320},
-    {id: 451, nombre: "BLOC DE HOJAS A4", precio: 510},
-    {id: 12, nombre: "BLOC DE HOJAS OFICIO", precio: 600},
-    {id: 2, nombre: "CARTUCHERA", precio: 400},
-    {id: 333, nombre: "FIBRON", precio: 350},
-    {id: 921, nombre: "GOMA", precio: 150},
-    {id: 313, nombre: "GOMA SUPER", precio: 250},
-    {id: 300, nombre: "CARTULINA", precio: 80},
-    {id: 1, nombre: "LAPICERA", precio: 200},
-    {id: 2010, nombre: "COMPAS", precio: 450},
-    {id: 111, nombre: "LAPICERA PREMIUM", precio: 300},
-    {id: 3, nombre: "LIQUID PAPER", precio: 280},
-    {id: 2023, nombre: "REGLA", precio: 100},
-]
-
+const productos = [];
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-class Producto {
-    constructor (id, nombre, precio) {
-        this.id = id
-        this.nombre = nombre
-        this.precio = precio
+const tabla = document.querySelector("#tabla");
+const inputId = document.querySelector("#ordenId");
+const inputNombre = document.querySelector("#ordenNombre");
+const inputPrecio = document.querySelector("#ordenPrecio");
+const inputFiltro = document.querySelector("#buscarProd");
+
+inputId.addEventListener("click", ordenId);
+inputNombre.addEventListener("click", ordenNombre);
+inputPrecio.addEventListener("click", ordenPrecio);
+inputFiltro.addEventListener("input", filtroProductos);
+
+// FUNCIONES
+// Interaccion HTML
+
+function cargarProductos(arr) {
+    let filaTabla = "";
+    tabla.innerHTML = "";
+    arr.forEach((prod) => {
+        filaTabla = `<tr>
+                        <td>${prod.id}</td>
+                        <td>${prod.nombre}</td>
+                        <td>$${prod.precio}</td>
+                        <td><button id="btn${prod.id}">+</button></td>
+                    </tr>`;
+        tabla.innerHTML += filaTabla;
+    });
+}
+
+
+// Metodos de orden
+
+function ordenId() {
+    productos.sort((a, b) => {
+        if (a.id > b.id) {
+            return 1;
+        }
+        if (a.id < b.id) {
+            return -1;
+        }
+        return 0;
+    });
+    cargarProductos(productos);
+}
+
+function ordenNombre() {
+    productos.sort((a, b) => {
+        if (a.nombre > b.nombre) {
+            return 1;
+        }
+        if (a.nombre < b.nombre) {
+            return -1;
+        }
+        return 0;
+    });
+    cargarProductos(productos);
+}
+
+function ordenPrecio() {
+    productos.sort((a, b) => {
+        if (a.precio > b.precio) {
+            return 1;
+        }
+        if (a.precio < b.precio) {
+            return -1;
+        }
+        return 0;
+    });
+    cargarProductos(productos);
+}
+
+// Filtrado de productos por nombre
+
+function filtroProductos() {
+    inputFiltro.value = inputFiltro.value.toUpperCase();
+    if (inputFiltro.value !== "") {
+        const salida = productos.filter((filtro) =>
+            filtro.nombre.includes(inputFiltro.value)
+        );
+        if (salida.length === 0) {
+            console.warn("No se encuentra");
+            cargarProductos(productos);
+        } else {
+            cargarProductos(salida);
+        }
+    } else {
+        cargarProductos(productos);
     }
 }
 
-productos.push(new Producto(4, "REGLA DE METAL", 500)); 
-productos.push(new Producto(7740, "LAPIZ BIC", 310)); 
-productos.push(new Producto(641, "TRANSPORTADOR", 220)); 
-productos.push(new Producto(2022, "LAPIZ DE COLOR X5", 700)); 
+// FETCH
+
+const tomarData = async () => {
+    try {
+        const response = await fetch("../data/productos.json");
+        const datos = await response.json();
+        productos.push(...datos);
+        cargarProductos(productos);
+        accionAgregar();
+    } catch (error) {
+        console.log(error);
+    }
+};
+tomarData();
+
+// Agregar al carrito mediante boton
+function accionAgregar() {
+    productos.forEach((prod) => {
+        const btn = document.querySelector(`#btn${prod.id}`);
+        btn.addEventListener("click", () => {
+            agregarAlCarrito(`${prod.id}`);
+            sumaTotal(...carrito);
+        });
+    });
+}

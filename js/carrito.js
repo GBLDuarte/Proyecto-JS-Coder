@@ -9,19 +9,8 @@ function generarCarrito() {
                             <td>${prod.id}</td>
                             <td>${prod.nombre}</td>
                             <td>$${prod.precio}</td>    
-                            <td><button id="c${prod.id}">X</button></td>
-                     </tr>`
+                         </tr>`
         tablaCarrito.innerHTML += filaCarrito;
-    })
-}
-
-function accionAgregar() {
-    productos.forEach(prod => {
-        const btn = document.querySelector(`#btn${prod.id}`)
-        btn.addEventListener("click", () => {
-            agregarAlCarrito(`${prod.id}`)
-            sumaTotal(...carrito)
-        });
     })
 }
 
@@ -32,10 +21,6 @@ function agregarAlCarrito(id) {
     msjCarrito();
     limpiezaCarrito();
     generarCarrito();
-}
-
-function recuperoCarrito() {
-    localStorage.getItem("carrito") && carrito;
 }
 
 function limpiezaCarrito() {
@@ -53,9 +38,8 @@ function sumaTotal(...arr) {
     precioFinal.innerHTML = `Precio total: $${total}`
 }
 
-// Vaciar carrito mediante boton + alerta
+// Vacia el carrito completamente por boton + alerta
 const vaciarCarrito = document.querySelector("#btnVaciar")
-vaciarCarrito.addEventListener("click", vaciadoCarrito);
 
 function vaciadoCarrito() {
     Swal.fire({
@@ -76,10 +60,12 @@ function vaciadoCarrito() {
             setTimeout(() => {
                 localStorage.clear();
                 location.reload();
-              }, "730")
+            }, "730")
         }
     })
 }
+
+vaciarCarrito.addEventListener("click", vaciadoCarrito);
 
 // Librerias para alertas
 function msjCarrito() {
@@ -99,6 +85,4 @@ function msjCarrito() {
 }
 
 comprobarCarrito();
-recuperoCarrito();
-accionAgregar();
 sumaTotal(...carrito);
