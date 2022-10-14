@@ -35,7 +35,7 @@ function comprobarCarrito() {
 
 function sumaTotal(...arr) {
     let total = arr.reduce((acc, elemento) => acc + elemento.precio, 0)
-    precioFinal.innerHTML = `Precio total: $${total}`
+    precioFinal.innerHTML = `TOTAL: $${total}`
 }
 
 // Vacia el carrito completamente por boton + alerta
@@ -71,7 +71,7 @@ vaciarCarrito.addEventListener("click", vaciadoCarrito);
 function msjCarrito() {
     Toastify({
         text: "Agregado al carrito",
-        duration: 1000,
+        duration: 1500,
         newWindow: true,
         close: true,
         gravity: "top",

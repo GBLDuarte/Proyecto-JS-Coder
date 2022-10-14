@@ -2,91 +2,109 @@
     {
         "id": 210,
         "nombre": "LAPIZ",
-        "precio": 210
+        "precio": 210,
+        "img": "../img/lapiz.png"
     },
     {
         "id": 10,
         "nombre": "TIJERA",
-        "precio": 320
+        "precio": 320,
+        "img": "../img/tijera.png"
     },
     {
         "id": 451,
         "nombre": "BLOC DE HOJAS A4",
-        "precio": 510
+        "precio": 510,
+        "img": "../img/a4.png"
     },
     {
         "id": 12,
         "nombre": "BLOC DE HOJAS OFICIO",
-        "precio": 600
+        "precio": 600,
+        "img": "../img/oficio.png"
     },
     {
         "id": 2,
         "nombre": "CARTUCHERA",
-        "precio": 400
+        "precio": 400,
+        "img":"../img/cartuchera.png"
     },
     {
         "id": 333,
         "nombre": "FIBRON",
-        "precio": 350
+        "precio": 350,
+        "img":"../img/fibron.png"
     },
     {
         "id": 921,
         "nombre": "GOMA",
-        "precio": 150
+        "precio": 150,
+        "img":"../img/goma.png"
     },
     {
         "id": 313,
         "nombre": "GOMA SUPER",
-        "precio": 250
+        "precio": 250,
+        "img":"../img/gomapremium.png"
     },
     {
         "id": 300,
         "nombre": "CARTULINA",
-        "precio": 80
+        "precio": 80,
+        "img":"../img/cartulina.png"
     },
     {
         "id": 1,
         "nombre": "LAPICERA",
-        "precio": 200
+        "precio": 200,
+        "img":"../img/lapicera.png"
     },
     {
         "id": 2010,
         "nombre": "COMPAS",
-        "precio": 450
+        "precio": 450,
+        "img": "../img/compas.png"
     },
     {
         "id": 111,
         "nombre": "LAPICERA PREMIUM",
-        "precio": 300
+        "precio": 300,
+        "img": "../img/lapicerapremium.png"
     },
     {
         "id": 3,
         "nombre": "LIQUID PAPER",
-        "precio": 280
+        "precio": 280,
+        "img":"../img/liquid.png"
     },
     {
         "id": 2023,
         "nombre": "REGLA",
-        "precio": 100
+        "precio": 100,
+        "img": "../img/regla.png"
     },
     {
         "id": 4,
-        "nombre": "REGLA DE METAL",
-        "precio": 500
+        "nombre": "REGLA METALICA",
+        "precio": 500,
+        "img": "../img/reglametal.png"
     },
     {
         "id": 7740,
         "nombre": "LAPIZ BIC",
-        "precio": 310
+        "precio": 310,
+        "img": "../img/lapizbic.png"
     },
     {
         "id": 641,
         "nombre": "TRANSPORTADOR",
-        "precio": 220
+        "precio": 220,
+        "img": "../img/transportador.png"
     },
     {
         "id": 2022,
         "nombre": "LAPIZ DE COLOR X5",
-        "precio": 700
+        "precio": 700,
+        "img": "../img/lapicescolores.png"
     }
 ]

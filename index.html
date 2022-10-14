@@ -2,70 +2,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Proyecto JS</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Proyecto JS</title>
 </head>
 
 <body>
-    <section>
-        <h1 id="titulo">Libreria "El Gatito"</h1>
-        <p id="info">Productos disponibles:</p>
-        <div class="metodos">
-            <input id="buscarProd" placeholder="Ingrese el nombre del producto..." type="search">
-            <div class="botones">
-                <input id="ordenId" name="orden" type="radio">
-                <label for="orden">Ordenar por ID</label>
-                <input id="ordenNombre" name="orden" type="radio">
-                <label for="orden">Ordenar por Nombre (A-Z)</label>
-                <input id="ordenPrecio" name="orden" type="radio">
-                <label for="orden">Ordenar por Precio (Menor-Mayor)</label>
-            </div>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a id="titulo" class="navbar-brand" href="#">Libreria "El Gatito"</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Afiliados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Nosotros</a>
+            </li>
+          </ul>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE DEL PRODUCTO</th>
-                    <th>PRECIO</th>
-                    <th>AGREGAR AL CARRITO</th>
-                </tr>
-            </thead>
-            <tbody id="tabla">
-                <!-- Carga de productos desde JS -->
-            </tbody>
-        </table>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <p id="info">Productos disponibles:</p>
+      <!-- Productos -->
+      <div id="contenido">
+        <!-- Carga de productos desde JS -->
+      </div>
     </section>
     <!-- Carrito de compras -->
-    <section>
-        <h2>Carrito</h2>
-        <p>Productos seleccionados:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE DEL PRODUCTO</th>
-                    <th>PRECIO</th>
-                </tr>
-            </thead>
-            <tbody id="tablaCarrito">
+    <section class="carrito">
+      <h2>Carrito</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NOMBRE DEL PRODUCTO</th>
+            <th>PRECIO</th>
+          </tr>
+        </thead>
+        <tbody id="tablaCarrito">
 
-            </tbody>
-        </table>
+        </tbody>
+      </table>
+      <div class="btn-finales">
         <p id="total"></p>
-        <div>
-            <button id="btnVaciar">VACIAR CARRITO</button>
-        </div>
+        <button class="btn btn-danger" id="btnVaciar">VACIAR CARRITO</button>
+      </div>
     </section>
+  </main>
+  <footer>
+    <div class="infoFooter">
+      <h4 class="m-0">Proyecto del curso JavaScript Coderhouse © Gabriel Duarte - 2022</h4>
+    </div>
+  </footer>
 
-    <script src="./js/index.js"></script>
-    <script src="./js/carrito.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/carrito.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
