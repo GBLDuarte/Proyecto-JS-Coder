@@ -103,9 +103,9 @@ class CompraRealizada {
 
 function guardarCompra() {
     let prodsDeCompra = [];
-    prodsDeCompra.push(new CompraRealizada(carrito))
-    localStorage.setItem("compra", JSON.stringify(prodsDeCompra))
-    console.table(prodsDeCompra)
+    prodsDeCompra.push(new CompraRealizada(carrito));
+    localStorage.setItem("compra", JSON.stringify(prodsDeCompra));
+    console.table(prodsDeCompra);
 }
 
 btnCompra.addEventListener("click", ()=> {
