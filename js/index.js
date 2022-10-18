@@ -15,7 +15,7 @@ function cargarProductos(arr) {
                 <img src="${prod.img}"
                 class="card-img" style="height: 260px" alt="producto${prod.id}">
                     <div class="card-body">
-                         <h3 class="card-name">Item: ${prod.nombre}</h3>
+                         <h3 class="card-name">${prod.nombre}</h3>
                          <h4 class="card-price">Precio: $${prod.precio}</h4>
                          <div class="btn-center">
                          <a id="p${prod.id}" class="btn btn-primary">Agregar al Carrito</a>
@@ -40,13 +40,14 @@ const tomarData = async () => {
 };
 tomarData();
 
-// Agregar al carrito mediante boton
+// Agregar al carrito mediante boton, las funciones que integran este evento se encuentra en carrito.js
 function accionAgregar() {
     productos.forEach((prod) => {
         const btn = document.querySelector(`#p${prod.id}`);
         btn.addEventListener("click", () => {
             agregarAlCarrito(`${prod.id}`);
             sumaTotal(...carrito);
+            btn.classList.add("ocultar");
         });
     });
 }

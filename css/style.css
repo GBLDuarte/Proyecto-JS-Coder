@@ -49,6 +49,30 @@ h3, h4 {
     text-align: center;
 }
 
+.ocultar {
+    display: none;
+}
+
+/* Icono flotante carrito */
+
+.btn-carrito {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 30px;
+    border: 2px solid black;
+    border-radius: 30px;
+    background-color: #EBEFBF;
+    color: black;
+    text-align: center;
+    line-height: 70px;
+}
+
+.fa-cart-shopping {
+    font-size: 30px;
+}
+
 /* Carrito de compras */
 
 .carrito {
@@ -56,6 +80,7 @@ h3, h4 {
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .carrito h2 {
@@ -91,6 +116,11 @@ table tr td {
 
 #total {
     font-size: 20px;
+}
+
+.btn-success {
+    margin-bottom: 1rem;
+    width: 200px;
 }
 
 /* Footer */

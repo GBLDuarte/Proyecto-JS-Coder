@@ -1,3 +1,4 @@
+let total  //se utiliza para el precio total del carrito y tambien para la class
 const tablaCarrito = document.querySelector("#tablaCarrito");
 const precioFinal = document.querySelector("#total");
 
@@ -33,10 +34,14 @@ function comprobarCarrito() {
     localStorage.getItem("carrito") && generarCarrito();
 }
 
+comprobarCarrito();
+
 function sumaTotal(...arr) {
-    let total = arr.reduce((acc, elemento) => acc + elemento.precio, 0)
+    total = arr.reduce((acc, elemento) => acc + elemento.precio, 0)
     precioFinal.innerHTML = `TOTAL: $${total}`
 }
+
+sumaTotal(...carrito);
 
 // Vacia el carrito completamente por boton + alerta
 const vaciarCarrito = document.querySelector("#btnVaciar")
@@ -84,5 +89,36 @@ function msjCarrito() {
     }).showToast();
 }
 
-comprobarCarrito();
-sumaTotal(...carrito);
+// Finalizando compra (guarda en storage los datos de compra y reload)
+const btnCompra = document.querySelector("#btnCompra");
+btnCompra.classList.remove("ocultar");
+
+class CompraRealizada {
+    constructor(arr) {
+        this.momento = new Date().toLocaleString();
+        this.productos = arr.length;
+        this.total = total;
+    }
+}
+
+function guardarCompra() {
+    let prodsDeCompra = [];
+    prodsDeCompra.push(new CompraRealizada(carrito))
+    localStorage.setItem("compra", JSON.stringify(prodsDeCompra))
+    console.table(prodsDeCompra)
+}
+
+btnCompra.addEventListener("click", ()=> {
+    guardarCompra();
+        Swal.fire({
+        title: "Gracias por realizar la compra!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+    })
+    setTimeout(() => {
+        localStorage.removeItem("carrito");
+        location.reload();
+    }, "1500")
+})
